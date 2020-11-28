@@ -13,7 +13,6 @@ function Game() {
     });
 
     const handleClick = (i) => {
-        console.log(data.isNextX, data.square, i);
         const squareArr = [...data.square];
         if (data.winner || squareArr[i]) {
             return;

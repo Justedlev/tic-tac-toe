@@ -1,3 +1,5 @@
 # Game Tic Tac Toe
 
-[Run the game](https://justedlevtictaktoe.web.app/)
+The game learned to respond (⌐■_■)
+
+[Run the game](https://tictactoe-justedlev.web.app/)

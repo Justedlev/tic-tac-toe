@@ -1,9 +1,9 @@
 .tictactoe {
-    animation: dash 0.4s cubic-bezier(.85,.1,.15,.9) forwards;
+    animation: dash 400ms cubic-bezier(.85,.1,.15,.9) forwards;
 }
 
 #slash {
-    animation-delay: 0.2s;
+    animation-delay: 120ms;
 }
 
 @keyframes dash {

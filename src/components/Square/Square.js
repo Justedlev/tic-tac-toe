@@ -1,5 +1,5 @@
 import classes from "./Square.module.css";
-import { O, X } from "../../logic/SVG/SVG";
+import { O, X } from "../../SVG/SVG";
 
 function Square(props) {
     return (

@@ -1,3 +1,5 @@
+import { isFreeSpace } from "../util/utils";
+
 const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -19,10 +21,11 @@ export const calculateWinner = (square) => {
     return null;
 };
 
-export const thinkingProcess = (array) => {
-    let index = Math.floor(Math.random() * 9);
-    while(array[index]){
-        index = Math.floor(Math.random() * 9);
+export const thinkingProcess = (array, count) => {
+    const isfs = isFreeSpace(array, count);
+    let index = Math.floor(Math.random() * count);
+    while (isfs && array[index]) {
+        index = Math.floor(Math.random() * count);
     }
     return index;
 };

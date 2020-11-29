@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Board from "./components/Board/Board";
 import classes from "./Game.module.css";
-import { calculateWinner, thinkingProcess } from "./logic/Mind/mind";
+import { calculateWinner, thinkingProcess } from "./logic/mind";
+import { getRandomNumber, isFreeSpace } from "./util/utils";
 
 export const GameContext = React.createContext();
 
@@ -28,7 +29,10 @@ function Game() {
 
     useEffect(() => {
         if (!data.isNextX && !data.winner) {
-            setTimeout(() => handleClick(thinkingProcess(data.square)), 2000);
+            setTimeout(
+                () => handleClick(thinkingProcess(data.square, 9)),
+                getRandomNumber(500, 2000)
+            );
         }
     });
 
@@ -59,9 +63,9 @@ function Game() {
                                     : { color: "#ED55A9" }
                             }
                         >
-                            Winner: {data.winner}
+                            {data.winner} WINNER!
                         </span>
-                    ) : (
+                    ) : isFreeSpace(data.square, 9) ? (
                         <span>
                             Next Player:
                             <span
@@ -72,6 +76,8 @@ function Game() {
                                 {data.isNextX ? " X" : " O"}
                             </span>
                         </span>
+                    ) : (
+                        <span>DRAW!</span>
                     )}
                 </div>
                 <div>

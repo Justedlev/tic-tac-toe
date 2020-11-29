@@ -15,7 +15,7 @@ function Game() {
 
     const handleClick = (i) => {
         const squareArr = [...data.square];
-        if (data.winner || squareArr[i]) {
+        if (i < 0 || data.winner || squareArr[i]) {
             return;
         }
         squareArr[i] = data.isNextX ? "X" : "O";

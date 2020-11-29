@@ -55,7 +55,9 @@ function Game() {
                     <small>mini game</small>
                 </div>
                 <div className={classes.Game_info}>
-                    {data.winner ? (
+                    {data.square.length === 0 ? (
+                        <span>Move to start!</span>
+                    ) : data.winner ? (
                         <span
                             style={
                                 data.winner === "X"
@@ -67,14 +69,12 @@ function Game() {
                         </span>
                     ) : isFreeSpace(data.square, 9) ? (
                         <span>
-                            Next Player:
-                            <span
-                                style={{
-                                    color: data.isNextX ? "#3FC0DD" : "#ED55A9",
-                                }}
-                            >
-                                {data.isNextX ? " X" : " O"}
-                            </span>
+                            Turn for:{" "}
+                            {data.isNextX ? (
+                                <span style={{ color: "#3FC0DD" }}>X</span>
+                            ) : (
+                                <span style={{ color: "#ED55A9" }}>O</span>
+                            )}
                         </span>
                     ) : (
                         <span>DRAW!</span>
